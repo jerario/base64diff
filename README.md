@@ -56,4 +56,15 @@ Note: You can upload as many different data as you want providing different IDs.
         }
     }
  
- 
+##How to run it
+### Build it
+You can build it using gradle wrapper
+    
+    ./gradlew build
+    
+### Run it
+You can run it with
+
+    java -jar build/libs/diff-1.0-SNAPSHOT.jar 
+
+
