@@ -1,0 +1,72 @@
+FORMAT: 1A
+HOST: http://localhost:8080
+
+# Base 64 Diff
+
+Diff is a simple API allowing users to compare two diferent Base 64 Strings.
+
+## Diff [/v1/diff/{id}]
+
+### View Differences [GET]
+
++ Response 200 (application/json)
+
+        {
+            "message": "Data is different",
+            "difference": {
+                "offsets": [
+                    8,
+                    11,
+                    17
+                ],
+                "length": 18
+            }
+        }
+
+## Uploading Left Part [/v1/diff/{id}/left]
+
+### Uploading [POST]
+
+You can upload the left data to be compare with the right one. It takes a JSON object
+containing the data.
+
++ Request (application/json)
+
+        {
+            "data": "This is an example"
+        }
+
++ Response 201 (application/json)
+
+
+    + Body
+
+            {
+                "id": 1
+                "left": "This is an example"
+                "right": null
+            }
+
+## Uploading Right Part [/v1/diff/{id}/right]
+
+### Uploading [POST]
+
+You can upload the right data to be compare with the left one. It takes a JSON object
+containing the data.
+
++ Request (application/json)
+
+        {
+            "data":"This is 4n 3xampl3"
+        }
+
++ Response 201 (application/json)
+
+
+    + Body
+
+            {
+                "id": 1
+                "left": null
+                "right": "This is 4n 3xampl3"
+            }

@@ -46,4 +46,6 @@ dependencies {
     runtime group: 'com.h2database', name: 'h2', version: '1.4.197'
     testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.2.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.2.RELEASE'
+
 }
