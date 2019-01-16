@@ -28,13 +28,13 @@ public class DiffController {
         this.service = service;
     }
 
-    @RequestMapping(value = "/left", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/left", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Document> saveLeft(@PathVariable String id, @RequestBody @Validated Content request) {
         validateContent(request);
         return new ResponseEntity<>(service.save(id, request.getData(), Side.LEFT), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/right", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/right", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity saveRight(@PathVariable String id, @RequestBody Content request) {
         validateContent(request);
         return new ResponseEntity<>(service.save(id, request.getData(), Side.RIGHT), HttpStatus.CREATED);

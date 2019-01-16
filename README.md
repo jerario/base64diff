@@ -77,9 +77,8 @@ Both endpoints receive the same JSON structure:
      {"data":<any Base 64 content>}
  
  For example:
-     
-     curl -X POST -d '{"data":"This is an example"}' localhost:8989/v1/diff/1/right
-     curl -X POST -d '{"data":"This is 4n 3xampl3"}' localhost:8989/v1/diff/1/left
+     curl -X POST -H 'Content-Type: application/json' -d '{"data":"This is an example"}' localhost:8989/v1/diff/1/right
+     curl -X POST -H 'Content-Type: application/json' -d '{"data":"This is 4n 3xampl3"}' localhost:8989/v1/diff/1/left
 
 Note: You can upload as many different data as you want providing different IDs.
  
