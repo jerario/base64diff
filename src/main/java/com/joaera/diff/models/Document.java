@@ -16,13 +16,18 @@ import java.util.LinkedList;
 public class Document {
     @Id
     private String id;
+
+    //64000 max length of String allowed
     @Lob
     @Column(length = 64000)
     private String left;
+
+    //64000 max length of String allowed
     @Lob
     @Column(length = 64000)
     private String right;
 
+    //Default constructor used for jackson mapper.
     public Document() {
 
     }
@@ -45,6 +50,10 @@ public class Document {
         return leftBytes.length == rightBytes.length;
     }
 
+    /*
+    To difference both sides this method return the offset where both sides differ.
+    Its works only if both length are equal
+    */
     public LinkedList<Integer> diffSides() {
         LinkedList<Integer> offsets = new LinkedList<>();
         byte[] leftBytes = left.getBytes();

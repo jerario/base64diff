@@ -6,12 +6,17 @@ import com.joaera.diff.models.Content;
 import com.joaera.diff.models.DiffResult;
 import com.joaera.diff.models.Document;
 import com.joaera.diff.services.DiffService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/v1/diff/{id}")
@@ -40,7 +45,7 @@ public class DiffController {
         return new ResponseEntity<>(service.diff(id), HttpStatus.OK);
     }
 
-
+    //Custom Bad Request to avoid lot of unnecessary details usually returned by spring boot
     private void validateContent(Content request) {
         if (request == null || request.getData() == null) {
             throw new BadRequestException("Data cannnot be null");

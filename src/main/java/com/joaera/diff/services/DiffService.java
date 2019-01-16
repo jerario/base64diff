@@ -6,6 +6,7 @@ import com.joaera.diff.exceptions.DocumentNotFoundException;
 import com.joaera.diff.models.DiffResult;
 import com.joaera.diff.models.Difference;
 import com.joaera.diff.models.Document;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,10 @@ public class DiffService {
         this.repository = repository;
     }
 
+    /*Save side passed for parameter, in the Id selected.
+    If the id is already in repository, it will be updated
+    otherwise, it will be created
+    */
     public Document save(String id, String data, Side side) {
         Optional<Document> savedDocument = repository.findById(id);
         Document document = savedDocument.orElseGet(() -> new Document(id));
@@ -33,6 +38,7 @@ public class DiffService {
         return repository.save(document);
     }
 
+    //Create the diff response of the service
     public DiffResult diff(String id) {
         DiffResult result = new DiffResult();
         Optional<Document> savedDocument = repository.findById(id);
@@ -54,6 +60,7 @@ public class DiffService {
         return result;
     }
 
+    //Private method that check that both side of documents are loaded before any comparation.
     private void validateDocument(Document document) {
         if (document.getLeft() == null) {
             throw new DocumentNotFoundException("Left side of Document is missing");

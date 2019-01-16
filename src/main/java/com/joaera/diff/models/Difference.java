@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.util.LinkedList;
 
+//Model for differences between sides.
 @Data
 @AllArgsConstructor
 public class Difference {

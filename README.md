@@ -40,15 +40,11 @@ And install Lombok plugin for IntelliJ:
 ------>Restart IntelliJ
 ```
 
-## How to use it
-
-### How to run it
-#### Build it
+### Running as Jar
 You can build it using gradle wrapper
     
     ./gradlew build
     
-#### Run it
 You can run it with
 
     java -jar build/libs/diff-1.0-SNAPSHOT.jar 
@@ -110,11 +106,10 @@ Note: You can upload as many different data as you want providing different IDs.
     }
  
 ## Technology
-* Gradle
-* Spring-boot
-* Mockito (for testing)
-* JUnit (for testing)
-* Lombok (for getters and setters generation)
-* H2 Database (for saving data)
-* Apiary (for documentation)
+* [Spring Boot](https://projects.spring.io/spring-boot/) - The web framework used
+* [Gradle](http://www.gradle.org/) - Dependency Management
+* [Lombok](https://projectlombok.org/) - Used to generate automatic setters and getters
+* [Mockito](http://site.mockito.org/) - For testing framework
+* [H2 Databse](https://projects.spring.io/spring-boot/) - Used for storing data
+* [Apiary](https://apiary.io/) - Used for documentation
 
